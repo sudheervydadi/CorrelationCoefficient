@@ -31,3 +31,12 @@ def covariance(X,Y):
     data['X-X_bar*Y-Y_bar']=data['X-X_bar']*data['Y-Y_bar']
     
     return np.sum(data['X-X_bar*Y-Y_bar'])/(len(data)-1)
+
+def standardDeviation(X):
+    
+    data=pd.DataFrame()
+    data['X']=pd.Series(data=X)
+    data['X-X_bar_wholesqare']=np.square(data['X']-np.mean(data['X']))
+    
+    return np.sqrt(np.sum(data['X-X_bar_wholesqare'])/(len(data)-1))
+
